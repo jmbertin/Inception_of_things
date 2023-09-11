@@ -1,0 +1,19 @@
+S_IP = "192.168.56.110"
+S_HOSTNAME = "jbertinS"
+OSIMAGE = "ubuntu/jammy64"
+RAM = "2024"
+CPU = "2"
+
+Vagrant.configure("2") do |config|
+  config.vm.define S_HOSTNAME do |server|
+    config.vm.box = OSIMAGE
+    server.vm.synced_folder "./conf", "/vagrant/conf"
+    server.vm.hostname = S_HOSTNAME
+    server.vm.network "private_network", ip: S_IP
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+    server.vm.provision "shell", privileged: true, path: "scripts/server.sh", args: [S_IP]
+  end
+end

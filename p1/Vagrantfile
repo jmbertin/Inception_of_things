@@ -1,0 +1,32 @@
+S_IP = "192.168.56.110"
+SW_IP = "192.168.56.111"
+NAME = "jbertin"
+S_HOSTNAME = "jbertinS"
+SW_HOSTNAME = "jbertinSW"
+OSIMAGE = "ubuntu/jammy64"
+RAM = "2048"
+CPU = "2"
+
+Vagrant.configure("2") do |config|
+  config.vm.define S_HOSTNAME do |server|
+    config.vm.box = OSIMAGE
+    server.vm.hostname = S_HOSTNAME
+    server.vm.network "private_network", ip: S_IP
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+    server.vm.provision "shell", privileged: true, path: "scripts/server.sh", args: [S_IP]
+  end
+
+  config.vm.define SW_HOSTNAME do |worker|
+    config.vm.box = OSIMAGE
+    worker.vm.hostname = SW_HOSTNAME
+    worker.vm.network "private_network", ip: SW_IP
+    worker.vm.provider "virtualbox" do |vb|
+      vb.memory = RAM
+      vb.cpus = CPU
+    end
+    worker.vm.provision "shell", privileged: true, path: "scripts/worker.sh", args: [S_IP, SW_IP]
+  end
+end
