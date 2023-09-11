@@ -1,5 +1,5 @@
 # Inception_of_things
-Welcome to the "Inception-of-Things (IoT)" project. This project is a minimal introduction to Kubernetes. It's a deep dive into system administration, leveraging technologies such as K3S, K3D, Vagrant, and Argo CD to set up a virtual environment and deploy web applications.
+Welcome to the "Inception-of-Things (IoT)" project. Ft_nm is a project undertaken as part of the 42 school curriculum, a minimal introduction to Kubernetes. It's a deep dive into system administration, leveraging technologies such as K3S, K3D, Vagrant, and Argo CD to set up a virtual environment and deploy web applications.
 
 **Developed and tested on a Linux Ubuntu 23.04.**
 
