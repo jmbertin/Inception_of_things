@@ -70,7 +70,7 @@ cd Inception_of_things
 ``./scripts/clean.sh``
 
 
-#### Part 1: Setting up with K3S and Vagrant
+### Part 1: Setting up with K3S and Vagrant
 Set up two machines with distinct roles: server and server worker, with the specifications outlined below:
 
 - Operating System: Latest stable version of your choice
@@ -85,7 +85,7 @@ cd p1
 sudo vagrant up
 ````
 
-#### Part 2 : Deploying Applications with K3S
+### Part 2 : Deploying Applications with K3S
 In this part, you will deploy three web applications in your K3S instance, accessible based on the HOST used in the request. The applications should have different versions (v1 and v2) available on Dockerhub. You can use the ready-made application available (wil-app) or create your own.
 
 **Usage :**
@@ -95,7 +95,7 @@ cd p2
 sudo vagrant up
 ````
 
-#### Part 3: Setting up K3D and Argo CD
+### Part 3: Setting up K3D and Argo CD
 Transition from Vagrant to K3D, setting up a minimalistic version of K3S on your virtual machine. Understand the differences between K3S and K3D and set up a continuous integration infrastructure with two namespaces:
 
 **Argo CD Namespace**: Dedicated to Argo CD
@@ -109,7 +109,7 @@ cd p3
 ````
 
 
-#### Bonus part : Integrating GitLab
+### Bonus part : Integrating GitLab
 As an extra step, add GitLab to the lab created in part 3, enhancing the functionality of your setup.
 
 **Usage :**
